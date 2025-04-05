@@ -11,7 +11,7 @@ import Focus4Shared
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State private var appGroupAccessible = false
+    @EnvironmentObject private var connectivityManager: ConnectivityManager
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -19,24 +19,38 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        VStack {
-            Text("App Group Access: \(appGroupAccessible ? "✅" : "❌")")
-                .onAppear {
-                    appGroupAccessible = SharedConfiguration.verifyAppGroupAccess()
+        NavigationStack {
+            VStack(spacing: 10) {
+                watchConnectionInfo
+                
+                // Firebase Status Indicator
+                HStack {
+                    Image(systemName: "flame.fill")
+                        .foregroundColor(.orange)
+                    
+                    #if canImport(FirebaseAuth)
+                    Text(FirebaseManager.shared.isUserSignedIn ? "Firebase: Signed In" : "Firebase: Ready")
+                        .font(.headline)
+                    #else
+                    Text("Firebase: Not Available")
+                        .font(.headline)
+                    #endif
+                    
+                    Spacer()
                 }
-            NavigationView {
+                .padding(.horizontal)
+                .padding(.bottom, 5)
+                
+                Divider()
+                
                 List {
                     ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        } label: {
-                            Text(item.timestamp!, formatter: itemFormatter)
-                        }
+                        Text(item.timestamp!, formatter: itemFormatter)
                     }
                     .onDelete(perform: deleteItems)
                 }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         EditButton()
                     }
                     ToolbarItem {
@@ -45,10 +59,44 @@ struct ContentView: View {
                         }
                     }
                 }
-                Text("Select an item")
+            }
+            .navigationTitle("Focus4")
+        }
+        .onAppear {
+            // Verify connectivity
+            print("iPhone-Watch connectivity: \(connectivityManager.isReachable ? "Connected" : "Not connected")")
+        }
+    }
+    
+    private var watchConnectionInfo: some View {
+        VStack(spacing: 8) {
+            HStack {
+                Image(systemName: connectivityManager.isReachable ? "applewatch.radiowaves.left.and.right" : "applewatch.slash")
+                    .font(.title3)
+                    .foregroundColor(connectivityManager.isReachable ? .green : .red)
+                
+                Text(connectivityManager.isReachable ? "Watch Connected" : "Watch Not Connected")
+                    .font(.headline)
+                
+                Spacer()
+                
+                Button(action: updateWatchStatus) {
+                    Label("", systemImage: "arrow.clockwise")
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+            }
+            
+            if connectivityManager.isReachable {
+                Button("Send Data to Watch") {
+                    sendDataToWatch()
+                }
+                .buttonStyle(.bordered)
+                .tint(.blue)
             }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.top, 10)
     }
 
     private func addItem() {
@@ -80,6 +128,35 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+    
+    private func updateWatchStatus() {
+        // This will update the isReachable status in the UI
+        print("Watch reachable: \(connectivityManager.isReachable)")
+    }
+    
+    private func sendDataToWatch() {
+        let currentTime = Date().timeIntervalSince1970
+        let message: [String: Any] = [
+            "type": "dataUpdate",
+            "timestamp": currentTime,
+            "itemCount": items.count
+        ]
+        
+        connectivityManager.sendMessage(message,
+            replyHandler: { reply in
+                print("Watch replied: \(reply)")
+            },
+            errorHandler: { error in
+                print("Error sending to watch: \(error.localizedDescription)")
+            }
+        )
+        
+        // Also update complications if they're enabled
+        connectivityManager.updateComplications(with: [
+            "itemCount": items.count,
+            "lastUpdated": currentTime
+        ])
     }
 }
 

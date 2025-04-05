@@ -3,13 +3,20 @@
 ## System Architecture
 
 ### Core Components
-1. Focus App
+1. Authentication System
+   - Phone Authentication (Primary)
+   - Email Recovery (Secondary)
+   - User Profile Management
+   - Session Management
+   - Cross-Device Authentication
+
+2. Focus App
    - Task Management
    - Timer System
    - Friction Engine
    - Analytics Dashboard
 
-2. Meetup System
+3. Meetup System
    - Event Management
    - User Profiles
    - RSVP System
@@ -36,7 +43,108 @@
    - Network indicators
    - Error handlers
 
+## Authentication Architecture
+
+### Authentication Flow
+1. Primary Authentication Flow (Phone)
+   ```
+   ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+   │  Phone Number   │────▶│  SMS Code       │────▶│  Verification   │────▶│  Profile        │
+   │  Entry          │     │  Delivery       │     │  Completion     │     │  Creation       │
+   └─────────────────┘     └─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                                                  │
+                                                                                  ▼
+                                                                           ┌─────────────────┐
+                                                                           │  Recovery Email │
+                                                                           │  Option         │
+                                                                           └─────────────────┘
+   ```
+
+2. Recovery Authentication Flow (Email)
+   ```
+   ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+   │  Recovery       │────▶│  Email          │────▶│  Password       │────▶│  Account        │
+   │  Request        │     │  Verification   │     │  Creation       │     │  Access         │
+   └─────────────────┘     └─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                                                  │
+                                                                                  ▼
+                                                                           ┌─────────────────┐
+                                                                           │  Phone Number   │
+                                                                           │  Update         │
+                                                                           └─────────────────┘
+   ```
+
+3. Authentication Method Relationship
+   ```
+   ┌──────────────────────┐                         ┌──────────────────────┐
+   │                      │                         │                      │
+   │  Phone Auth (Primary)│                         │  Email (Recovery)    │
+   │                      │◀────Links to─────────▶ │                      │
+   └──────────────────────┘                         └──────────────────────┘
+         │        ▲                                         ▲        │
+         │        │                                         │        │
+         │        │           ┌─────────────┐              │        │
+         │        │           │             │              │        │
+         ▼        │           │  User       │              │        ▼
+    ┌──────────┐  │           │  Account    │             │   ┌──────────┐
+    │ Sign-in  │  │           │             │             │   │ Account  │
+    │ Process  │──┘           └─────────────┘             └───│ Recovery │
+    └──────────┘                                              └──────────┘
+   ```
+
+### Authentication Components
+1. Phone Authentication Components
+   - PhoneNumberValidator
+   - SMSCodeManager
+   - VerificationHandler
+   - PhoneAuthViewModel
+   - InternationalPhoneFormatter
+   - VerificationTimerService
+
+2. Email Recovery Components
+   - EmailValidator
+   - PasswordManager
+   - RecoveryRequestHandler
+   - EmailRecoveryViewModel
+   - SecurityQuestionHandler
+   - AccountRestoreService
+
+3. Shared Authentication Components
+   - TokenManager
+   - SessionController
+   - AuthStateObserver
+   - BiometricAuthHelper
+   - WatchAuthStateSync
+   - SecurityAuditLogger
+
+### Authentication-User Relationship
+- Each user account has exactly one primary authentication method (phone)
+- Each user account may have zero or one recovery method (email)
+- Authentication methods are linked by internal account identifiers
+- Authentication state is synchronized across devices
+- Recovery method cannot be used for primary sign-in
+- Changes to either method require verification
+
 ## Data Flow
+
+### Authentication Data Flow
+1. Phone Authentication Flow
+   - Phone Entry → Validation → SMS Delivery → Code Verification → Account Access → Profile Creation
+   - Authentication token stored in secure storage
+   - User ID linked to phone number in Firebase
+   - Session state propagated to all app components
+
+2. Email Recovery Flow
+   - Recovery Request → Email Delivery → Link Verification → Password Creation → Limited Account Access
+   - Temporary recovery token with expiration
+   - Recovery state allows only specific account operations
+   - Full authentication restored after phone verification
+
+3. Cross-Device Authentication
+   - Authentication state synchronized via CloudKit
+   - Watch receives delegated authentication from phone
+   - Session tokens refreshed based on device-specific timeouts
+   - Authentication events logged for security monitoring
 
 ### Local Data Layer
 1. Core Data
@@ -53,6 +161,7 @@
 
 ### Remote Data Layer
 1. Firebase
+   - User authentication
    - User profiles
    - Event data
    - Analytics
@@ -112,6 +221,21 @@
 
 ## Security Implementation
 
+### Authentication Security
+1. User Identity
+   - Phone number verification
+   - Email verification
+   - Account linking protection
+   - Cross-verification requirements
+   - Recovery limitations
+
+2. Session Security
+   - Short-lived authentication tokens
+   - Secure storage in Keychain
+   - Background session expiration
+   - Token refresh mechanisms
+   - Watch delegated authentication
+
 ### Local Security
 1. Storage
    - File encryption
@@ -140,6 +264,19 @@
 
 ## State Management
 
+### Authentication State
+1. Unauthenticated State
+   - Initial app launch
+   - Signed out
+   - Session expired
+   - Recovery in progress
+
+2. Authenticated State
+   - Fully authenticated (phone)
+   - Recovery authentication (email)
+   - Temporary access (recovery in progress)
+   - Watch delegated authentication
+
 ### App State
 1. User State
    - Authentication state
@@ -167,6 +304,27 @@
    - Empty states
 
 ## Error Handling
+
+### Authentication Errors
+1. Phone Authentication Errors
+   - Invalid phone number format
+   - SMS delivery failure
+   - Verification code expiration
+   - Too many verification attempts
+   - Network timeout during verification
+
+2. Recovery Authentication Errors
+   - Invalid email format
+   - Email delivery failure
+   - Recovery link expiration
+   - Password complexity requirements
+   - Rate limiting of recovery attempts
+
+3. Recovery Procedures
+   - Automated retry mechanisms
+   - Alternative verification options
+   - Fallback verification channels
+   - Support-assisted recovery
 
 ### Component Errors
 1. UI Errors

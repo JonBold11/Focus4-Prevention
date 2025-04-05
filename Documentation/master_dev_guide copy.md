@@ -1056,32 +1056,20 @@ Before submitting to the App Store, ensure the following views contain accurate,
 
 ### Security Standards
 1. Authentication Security
-   - Primary Method: Phone number verification
-     - SMS code verification flow
-     - Required for all users
-     - Firebase Phone Authentication
-   - Recovery Method: Email/password (optional)
-     - Added after phone verification
-     - Used only for account recovery
-     - Not a primary sign-in method
-   - Authentication Flow:
-     - Initial Phone Verification -> Profile Creation -> Optional Email Recovery Setup
-     - Recovery Path: Email Reset -> Password Creation -> Account Access Restoration
-   - Security Measures:
-     - Two-factor authentication through dual-method approach
-     - No email-only authentication permitted
-     - Verification requirements for both methods
-   - Implementation Guidelines:
-     - Phone verification must complete before profile creation
-     - Email recovery should be encouraged but optional
-     - Clear separation between primary and recovery authentication
-     - No automatic transition between authentication methods
+   - Phone number verification
+   - Session management
+   - Token handling
+   - Watch authentication
+   - Biometric security
+   - Multi-device security
 
 2. Data Protection
-   - At rest: AES-256 encryption
-   - In transit: TLS 1.3
+   - Encryption at rest
+   - Encryption in transit
    - Key management
-   - Key rotation
+   - Secure storage
+   - Watch data protection
+   - Backup security
 
 3. Network Security
    - API security
@@ -1289,11 +1277,6 @@ Focus4/
 ### View Layer
 1. iOS Views
    - Authentication
-     - Phone Verification Screen
-     - SMS Code Entry
-     - Profile Setup
-     - Recovery Email Option
-     - Account Recovery Flow
    - Focus Timer
    - Event Management
    - User Profile
@@ -1318,9 +1301,7 @@ Focus4/
 
 ### Data Flow
 1. User Data
-   - Authentication Flow:
-     - Phone Verification → Profile Creation → Optional Email Recovery
-     - Recovery Path: Email Reset → Password Creation → Account Restoration
+   - Authentication → Profile
    - Profile → Preferences
    - Preferences → Settings
    - Settings → Watch
@@ -1355,26 +1336,10 @@ Focus4/
 
 ### Security Requirements
 1. Authentication
-   - Primary Method: Phone number verification
-     - SMS code verification flow
-     - Required for all users
-     - Firebase Phone Authentication
-   - Recovery Method: Email/password (optional)
-     - Added after phone verification
-     - Used only for account recovery
-     - Not a primary sign-in method
-   - Authentication Flow:
-     - Initial Phone Verification -> Profile Creation -> Optional Email Recovery Setup
-     - Recovery Path: Email Reset -> Password Creation -> Account Access Restoration
-   - Security Measures:
-     - Two-factor authentication through dual-method approach
-     - No email-only authentication permitted
-     - Verification requirements for both methods
-   - Implementation Guidelines:
-     - Phone verification must complete before profile creation
-     - Email recovery should be encouraged but optional
-     - Clear separation between primary and recovery authentication
-     - No automatic transition between authentication methods
+   - Phone number verification
+   - Two-factor authentication (optional)
+   - Session management
+   - Token-based authentication
 
 2. Data Protection
    - At rest: AES-256 encryption
@@ -1384,41 +1349,18 @@ Focus4/
 
 ## Testing Framework
 
-### Authentication Testing
-1. Phone Authentication
-   - Phone number validation testing
-   - SMS code verification testing
-   - Error handling scenarios
-   - Timeout and retry scenarios
-   - International number testing
-
-2. Email Recovery
-   - Email validation testing
-   - Recovery flow testing
-   - Account linking verification
-   - Security testing
-   - Error handling scenarios
-
-3. Mixed Authentication Scenarios
-   - Recovery after phone number change
-   - Access restoration testing
-   - Account security verification
-   - Cross-device authentication testing
-
 ### Component Testing
 1. Unit Tests
    - Component logic
    - Service functionality
    - Utility methods
    - State management
-   - Authentication methods
 
 2. UI Tests
    - Component rendering
    - User interactions
    - State changes
    - Error states
-   - Authentication flows
 
 ### Integration Testing
 1. Feature Integration
@@ -1515,7 +1457,6 @@ Focus4/
 - Project Structure: Refer to `project_structure.md`
 - Review Process: Refer to `review_process.md`
 - Scope Boundaries: Refer to `scope_boundaries.md`
-- Authentication Flow: Refer to `authentication_flow.md`
 
 ### Document Relationships
 - This document defines the integrated development approach
@@ -1523,7 +1464,6 @@ Focus4/
 - Data Management defines data handling
 - Project Structure defines file organization
 - Review Process defines quality checks
-- Authentication Flow defines the authentication process and recovery
 
 ## Data Retention
 
@@ -1600,92 +1540,4 @@ Focus4/
    - Legal holds: As required
    - Watch compliance: 12 months
    - Privacy logs: 24 months
-   - Consent records: 36 months
-
-## Authentication Implementation
-
-### Authentication Flow
-**Note:** For detailed authentication flow, please refer to `authentication_flow.md` which provides comprehensive documentation on authentication processes, recovery procedures, and security considerations.
-
-1. Primary Authentication (Phone)
-   - User enters phone number
-   - System sends SMS verification code
-   - User enters code to verify identity
-   - Upon successful verification, user proceeds to profile setup
-   - Phone authentication status is stored securely
-   - Phone becomes the primary authentication method
-
-2. Recovery Setup (Email)
-   - During profile setup, user is prompted to add recovery email
-   - Email and password are linked to the phone-authenticated account
-   - Email is verified through verification link
-   - Recovery email is stored as a secondary authentication method
-   - Clear indication that email is for recovery only
-
-3. Account Recovery Process
-   - User indicates inability to access via phone
-   - System prompts for recovery email
-   - Password reset email is sent
-   - User creates new password
-   - After successful email authentication, user can:
-     - Update phone number
-     - Access account functionality
-     - Restore normal authentication flow
-
-### Authentication Implementation Guidelines
-1. Security Considerations
-   - Never store plaintext credentials
-   - Implement rate limiting for verification attempts
-   - Use secure token storage
-   - Implement session timeout
-   - Enforce minimum security standards for recovery passwords
-
-2. User Experience
-   - Clear explanation of authentication methods
-   - Explicit indication of recovery vs. primary authentication
-   - Simple, streamlined verification process
-   - Adequate error handling and user guidance
-   - Accessibility support for all authentication screens
-
-3. Technical Implementation
-   - Use Firebase Authentication for phone and email methods
-   - Implement proper error handling
-   - Ensure cross-platform compatibility
-   - Maintain secure persistence of authentication state
-   - Implement proper token refresh mechanisms
-
-## Security Guidelines
-
-### Authentication Security Requirements
-1. Account Creation & Management
-   - Phone verification must be completed before account access
-   - Email recovery must be explicitly opted into by user
-   - Clear separation between primary and recovery methods
-   - No automatic transition between authentication methods
-   - Account linking must be secured with verification steps
-   - Limit authentication attempts to prevent brute force
-
-2. Session Management
-   - Implement secure token-based sessions
-   - Set appropriate session timeouts
-   - Secure token storage in Keychain
-   - Periodic token refresh
-   - Session invalidation on suspicious activity
-   - Cross-device session management
-
-3. Recovery Process Security
-   - Verification requirements for recovery
-   - Rate limiting on recovery attempts
-   - Notifications of recovery attempts
-   - Multi-step recovery verification
-   - Secure handling of temporary credentials
-   - Security audit logging during recovery
-
-### Data Transmission Security
-1. Network Security
-   - All transmissions must use TLS 1.3
-   - Certificate pinning for all API endpoints
-   - Secure WebSocket implementation
-   - API request signing
-   - Protection against replay attacks
-   - Network traffic monitoring 
+   - Consent records: 36 months 
