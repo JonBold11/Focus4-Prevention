@@ -206,6 +206,88 @@
   - Error handling
   - Authentication persistence
 
+## Data Services
+
+### CoreDataManager
+- **Purpose**: Low-level Core Data operations
+- **Usage**: Throughout app for data persistence
+- **APIs**:
+  - Entity creation methods
+  - Fetch methods
+  - Update methods
+  - Delete operations
+- **Architecture**: Singleton service
+- **Dependencies**: Core Data
+- **Testing**:
+  - Entity validation
+  - Relationship integrity
+  - Concurrency handling
+  - Error recovery
+
+### DataSynchronizationService
+- **Purpose**: Synchronizes data between Core Data and Firebase
+- **Usage**: Background sync operations
+- **Functionality**:
+  - User profile sync
+  - Task sync
+  - Session sync
+  - Conflict resolution
+- **Architecture**: Singleton service with Combine publishers
+- **Dependencies**: Core Data, Firebase
+- **Testing**:
+  - Sync verification
+  - Error handling
+  - Conflict resolution
+  - Performance
+
+### UserProfileService
+- **Purpose**: User profile management
+- **Usage**: Authentication integration and user management
+- **Functionality**:
+  - Profile creation
+  - Profile updates
+  - Settings management
+  - Authentication integration
+- **Architecture**: Singleton service with Combine publishers
+- **Dependencies**: CoreDataManager, Firebase Auth
+- **Testing**:
+  - Authentication flow
+  - Data validation
+  - Persistence verification
+  - Event handling
+
+### TaskService
+- **Purpose**: Task management operations
+- **Usage**: Task creation, updates, and management
+- **Functionality**:
+  - Task creation
+  - Task updates
+  - Task completion
+  - Task queries
+- **Architecture**: Singleton service with Combine publishers
+- **Dependencies**: CoreDataManager, UserProfileService
+- **Testing**:
+  - CRUD operations
+  - Validation
+  - Data integrity
+  - Reactive updates
+
+### FocusSessionService
+- **Purpose**: Focus session management
+- **Usage**: Timer operations and session tracking
+- **Functionality**:
+  - Session creation
+  - Session state management
+  - Time tracking
+  - Friction events
+- **Architecture**: Singleton service with Combine publishers
+- **Dependencies**: CoreDataManager, UserProfileService
+- **Testing**:
+  - State transitions
+  - Timer accuracy
+  - Data persistence
+  - Event handling
+
 ## Component Guidelines
 
 ### State Management
@@ -248,4 +330,5 @@
 
 ## Version History
 - 2024-04-03: Initial documentation created
-- 2024-04-06: Added authentication components 
+- 2024-04-06: Added authentication components
+- 2024-04-07: Added data service components 

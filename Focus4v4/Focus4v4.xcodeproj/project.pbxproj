@@ -15,24 +15,24 @@
 		6C4B14C02D9F8C96009BDB17 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14BF2D9F8C96009BDB17 /* FirebaseCrashlytics */; };
 		6C4B14C22D9F8C96009BDB17 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14C12D9F8C96009BDB17 /* FirebaseFirestore */; };
 		6C4B14C42D9F8C96009BDB17 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14C32D9F8C96009BDB17 /* FirebaseFirestoreCombine-Community */; };
-		6C4B14C62D9F8C96009BDB17 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14C52D9F8C96009BDB17 /* FirebaseFunctions */; };
-		6C4B14C82D9F8C96009BDB17 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14C72D9F8C96009BDB17 /* FirebaseMessaging */; };
-		6C4B14CA2D9F8C96009BDB17 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14C92D9F8C96009BDB17 /* FirebaseRemoteConfig */; };
-		6C4B14CC2D9F8C96009BDB17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14CB2D9F8C96009BDB17 /* FirebaseStorage */; };
-		6C4B14CE2D9F8D14009BDB17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14CD2D9F8D14009BDB17 /* FirebaseAnalytics */; };
-		6C4B14D02D9F8D14009BDB17 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14CF2D9F8D14009BDB17 /* FirebaseCrashlytics */; };
-		6C4B14D22D9F8D14009BDB17 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14D12D9F8D14009BDB17 /* FirebaseMessaging */; };
-		6C4B14D42D9F8D14009BDB17 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14D32D9F8D14009BDB17 /* FirebaseRemoteConfig */; };
-		6C4B14D62D9F8DAB009BDB17 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14D52D9F8DAB009BDB17 /* FirebaseAnalytics */; };
-		6C4B14D82D9F8DAB009BDB17 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14D72D9F8DAB009BDB17 /* FirebaseAppCheck */; };
-		6C4B14DA2D9F8DAB009BDB17 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14D92D9F8DAB009BDB17 /* FirebaseAuth */; };
-		6C4B14DC2D9F8DAB009BDB17 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14DB2D9F8DAB009BDB17 /* FirebaseCrashlytics */; };
-		6C4B14DE2D9F8DAB009BDB17 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14DD2D9F8DAB009BDB17 /* FirebaseFirestore */; };
-		6C4B14E02D9F8DAB009BDB17 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14DF2D9F8DAB009BDB17 /* FirebaseFirestoreCombine-Community */; };
-		6C4B14E22D9F8DAB009BDB17 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14E12D9F8DAB009BDB17 /* FirebaseFunctions */; };
-		6C4B14E42D9F8DAB009BDB17 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14E32D9F8DAB009BDB17 /* FirebaseMessaging */; };
-		6C4B14E62D9F8DAB009BDB17 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14E52D9F8DAB009BDB17 /* FirebaseRemoteConfig */; };
-		6C4B14E82D9F8DAB009BDB17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6C4B14E72D9F8DAB009BDB17 /* FirebaseStorage */; };
+		6C4B14C62D9F8C96009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14C82D9F8C96009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14CA2D9F8C96009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14CC2D9F8C96009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14CE2D9F8D14009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14D02D9F8D14009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14D22D9F8D14009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14D42D9F8D14009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14D62D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14D82D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14DA2D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14DC2D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14DE2D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14E02D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14E22D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14E42D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14E62D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6C4B14E82D9F8DAB009BDB17 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,13 +134,6 @@
 			);
 			target = 6C11B9072D9DC8CD00E40186 /* Focus4Shared */;
 		};
-		6CB400632DA175C500D9B613 /* Exceptions for "Focus4v4Watch Watch App" folder in "Focus4v4Watch Watch App" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Focus4v4Watch-Watch-App-Info.plist",
-			);
-			target = 6C11B8D42D9DC71C00E40186 /* Focus4v4Watch Watch App */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -166,9 +159,6 @@
 		};
 		6C11B8D62D9DC71C00E40186 /* Focus4v4Watch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6CB400632DA175C500D9B613 /* Exceptions for "Focus4v4Watch Watch App" folder in "Focus4v4Watch Watch App" target */,
-			);
 			path = "Focus4v4Watch Watch App";
 			sourceTree = "<group>";
 		};
@@ -202,16 +192,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C4B14E62D9F8DAB009BDB17 /* FirebaseRemoteConfig in Frameworks */,
-				6C4B14E42D9F8DAB009BDB17 /* FirebaseMessaging in Frameworks */,
-				6C4B14D82D9F8DAB009BDB17 /* FirebaseAppCheck in Frameworks */,
-				6C4B14E82D9F8DAB009BDB17 /* FirebaseStorage in Frameworks */,
-				6C4B14E22D9F8DAB009BDB17 /* FirebaseFunctions in Frameworks */,
-				6C4B14DC2D9F8DAB009BDB17 /* FirebaseCrashlytics in Frameworks */,
-				6C4B14DA2D9F8DAB009BDB17 /* FirebaseAuth in Frameworks */,
-				6C4B14E02D9F8DAB009BDB17 /* FirebaseFirestoreCombine-Community in Frameworks */,
-				6C4B14DE2D9F8DAB009BDB17 /* FirebaseFirestore in Frameworks */,
-				6C4B14D62D9F8DAB009BDB17 /* FirebaseAnalytics in Frameworks */,
+				6C4B14E62D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14E42D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14D82D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14E82D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14E22D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14DC2D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14DA2D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14E02D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14DE2D9F8DAB009BDB17 /* (null) in Frameworks */,
+				6C4B14D62D9F8DAB009BDB17 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,10 +223,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C4B14D22D9F8D14009BDB17 /* FirebaseMessaging in Frameworks */,
-				6C4B14CE2D9F8D14009BDB17 /* FirebaseAnalytics in Frameworks */,
-				6C4B14D02D9F8D14009BDB17 /* FirebaseCrashlytics in Frameworks */,
-				6C4B14D42D9F8D14009BDB17 /* FirebaseRemoteConfig in Frameworks */,
+				6C4B14D22D9F8D14009BDB17 /* (null) in Frameworks */,
+				6C4B14CE2D9F8D14009BDB17 /* (null) in Frameworks */,
+				6C4B14D02D9F8D14009BDB17 /* (null) in Frameworks */,
+				6C4B14D42D9F8D14009BDB17 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,11 +248,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C4B14CA2D9F8C96009BDB17 /* FirebaseRemoteConfig in Frameworks */,
-				6C4B14C82D9F8C96009BDB17 /* FirebaseMessaging in Frameworks */,
+				6C4B14CA2D9F8C96009BDB17 /* (null) in Frameworks */,
+				6C4B14C82D9F8C96009BDB17 /* (null) in Frameworks */,
 				6C4B14BC2D9F8C96009BDB17 /* FirebaseAppCheck in Frameworks */,
-				6C4B14CC2D9F8C96009BDB17 /* FirebaseStorage in Frameworks */,
-				6C4B14C62D9F8C96009BDB17 /* FirebaseFunctions in Frameworks */,
+				6C4B14CC2D9F8C96009BDB17 /* (null) in Frameworks */,
+				6C4B14C62D9F8C96009BDB17 /* (null) in Frameworks */,
 				6C4B14C02D9F8C96009BDB17 /* FirebaseCrashlytics in Frameworks */,
 				6C4B14BE2D9F8C96009BDB17 /* FirebaseAuth in Frameworks */,
 				6C4B14C42D9F8C96009BDB17 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -344,16 +334,6 @@
 			);
 			name = Focus4v4;
 			packageProductDependencies = (
-				6C4B14D52D9F8DAB009BDB17 /* FirebaseAnalytics */,
-				6C4B14D72D9F8DAB009BDB17 /* FirebaseAppCheck */,
-				6C4B14D92D9F8DAB009BDB17 /* FirebaseAuth */,
-				6C4B14DB2D9F8DAB009BDB17 /* FirebaseCrashlytics */,
-				6C4B14DD2D9F8DAB009BDB17 /* FirebaseFirestore */,
-				6C4B14DF2D9F8DAB009BDB17 /* FirebaseFirestoreCombine-Community */,
-				6C4B14E12D9F8DAB009BDB17 /* FirebaseFunctions */,
-				6C4B14E32D9F8DAB009BDB17 /* FirebaseMessaging */,
-				6C4B14E52D9F8DAB009BDB17 /* FirebaseRemoteConfig */,
-				6C4B14E72D9F8DAB009BDB17 /* FirebaseStorage */,
 			);
 			productName = Focus4v4;
 			productReference = 6C11B89C2D9DC5BC00E40186 /* Focus4v4.app */;
@@ -422,10 +402,6 @@
 			);
 			name = "Focus4v4Watch Watch App";
 			packageProductDependencies = (
-				6C4B14CD2D9F8D14009BDB17 /* FirebaseAnalytics */,
-				6C4B14CF2D9F8D14009BDB17 /* FirebaseCrashlytics */,
-				6C4B14D12D9F8D14009BDB17 /* FirebaseMessaging */,
-				6C4B14D32D9F8D14009BDB17 /* FirebaseRemoteConfig */,
 			);
 			productName = "Focus4v4Watch Watch App";
 			productReference = 6C11B8D52D9DC71C00E40186 /* Focus4v4Watch Watch App.app */;
@@ -501,10 +477,6 @@
 				6C4B14BF2D9F8C96009BDB17 /* FirebaseCrashlytics */,
 				6C4B14C12D9F8C96009BDB17 /* FirebaseFirestore */,
 				6C4B14C32D9F8C96009BDB17 /* FirebaseFirestoreCombine-Community */,
-				6C4B14C52D9F8C96009BDB17 /* FirebaseFunctions */,
-				6C4B14C72D9F8C96009BDB17 /* FirebaseMessaging */,
-				6C4B14C92D9F8C96009BDB17 /* FirebaseRemoteConfig */,
-				6C4B14CB2D9F8C96009BDB17 /* FirebaseStorage */,
 			);
 			productName = Focus4Shared;
 			productReference = 6C11B9082D9DC8CD00E40186 /* Focus4Shared.framework */;
@@ -1354,14 +1326,6 @@
 				minimumVersion = 11.11.0;
 			};
 		};
-		6C8D14C92DA1D5C3009ADC18 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.7.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1394,11 +1358,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6C4B14B82D9F8C96009BDB17 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
-		};
-		6C8D14CA2DA1D5C3009ADC18 /* PhoneNumberKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6C8D14C92DA1D5C3009ADC18 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = PhoneNumberKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
